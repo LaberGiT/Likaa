@@ -50,13 +50,13 @@ public:
                 if (a <= c)
                 {
                     ma = 0.5 * sqrt(2 * b * b + 2 * c * c - a * a);
-                    cout << "ma";
+                    cout << "медиана - ma = ";
                     return ma;
                     //a
                 }
                 else
                     mc = 0.5 * sqrt(2 * a * a + 2 * b * b - c * c);
-                cout << "mc";
+                cout << "медиана - mc = ";
                 return mc;
                 //c
             }
@@ -65,13 +65,13 @@ public:
                 if (b <= c)
                 {
                     mb = 0.5 * sqrt(2 * (a * a + c * c) - b * b);
-                    cout << "mb";
+                    cout << "медиана - mb = ";
                     return mb;
                     //b
                 }
                 else
                     mc = 0.5 * sqrt(2 * a * a + 2 * b * b - c * c);
-                cout << "mc";
+                cout << "медиана - mc = ";
                 return mc;
                 //c
             }
@@ -117,7 +117,7 @@ int main()
 
         if (side_a != 0 && side_b != 0 && side_c != 0)
         {
-            cout << " Медиана - " << triangle.mediana();
+            cout << triangle.mediana();
         }
         else
             cout << "одна из сторон равна 0, это не треугольник";
