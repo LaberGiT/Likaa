@@ -1,0 +1,130 @@
+// Яву Лика.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Triangle
+{
+public:
+    int x1, y1, x2, y2, x3, y3;
+    double side, a, b, c,ma,mb,mc;
+
+    double get_a(double side)
+    {
+        a = side;
+        return a;
+    }
+    double get_b(double side)
+    {
+        b = side;
+        return b;
+    }
+    double get_c(double side)
+    {
+        c = side;
+        return c;
+    }
+
+    double length_of_sides(int x1, int y1, int x2, int y2)
+    {
+        if (y1 == y2)
+            if (x1 >= x2)
+                side = x1 - x2;
+            else
+                side = x2 - x1;
+        else
+        {
+            if (x1 >= x2)
+                side = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+            else
+                side = sqrt((x2 - x1) * (x2 - x1) + (y1 - y2) * (y1 - y2));
+        }
+        return side;
+    }
+    double mediana()
+    {
+        if (a != 0 && b != 0 && c != 0)
+        {
+            if (a <= b)
+            {
+                if (a <= c)
+                {
+                    ma = 0.5 * sqrt(2 * b * b + 2 * c * c - a * a);
+                    cout << "ma";
+                    return ma;
+                    //a
+                }
+                else
+                    mc = 0.5 * sqrt(2 * a * a + 2 * b * b - c * c);
+                cout << "mc";
+                return mc;
+                //c
+            }
+            else
+            {
+                if (b <= c)
+                {
+                    mb = 0.5 * sqrt(2 * (a * a + c * c) - b * b);
+                    cout << "mb";
+                    return mb;
+                    //b
+                }
+                else
+                    mc = 0.5 * sqrt(2 * a * a + 2 * b * b - c * c);
+                cout << "mc";
+                return mc;
+                //c
+            }
+        }
+        else
+        {
+            cout << "одна из сторон равна 0, это не треугольник";
+            return 0;
+        }
+    }
+
+
+};
+
+int main()
+{
+    setlocale(LC_ALL, "");
+    Triangle triangle;
+    int x1, y1, x2, y2, x3, y3;
+    double side_a, side_b, side_c;
+
+    cout << "x = ";
+    cin >> x1;
+    cout << "y = ";
+    cin >> y1;
+    cout << "x1 = ";
+    cin >> x2;
+    cout << "y1 = ";
+    cin >> y2;
+    cout << "x2 = ";
+    cin >> x3;
+    cout << "y2 = ";
+    cin >> y3;
+
+    triangle.length_of_sides(x1, y1, x2, y2);
+        side_a = triangle.side;
+        triangle.get_a(side_a);
+        cout << "Сторона a - " << side_a << endl;
+    triangle.length_of_sides(x2, y2, x3, y3);
+        side_b = triangle.side;
+        triangle.get_b(side_b);
+        cout << "Сторона b - " << side_b << endl;
+    triangle.length_of_sides(x1, y1, x3, y3);
+        side_c = triangle.side;
+        triangle.get_c(side_c);
+        cout << "Сторона c - " << side_c << endl;
+
+        if (triangle.mediana())
+        {
+            cout << " Медиана - " << triangle.mediana();
+        }
+
+
+
+}
