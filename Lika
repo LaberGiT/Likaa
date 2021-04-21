@@ -44,8 +44,7 @@ public:
     }
     double mediana()
     {
-        if (a != 0 && b != 0 && c != 0)
-        {
+        
             if (a <= b)
             {
                 if (a <= c)
@@ -76,12 +75,8 @@ public:
                 return mc;
                 //c
             }
-        }
-        else
-        {
-            cout << "одна из сторон равна 0, это не треугольник";
-            return 0;
-        }
+        
+
     }
 
 
@@ -120,10 +115,14 @@ int main()
         triangle.get_c(side_c);
         cout << "Сторона c - " << side_c << endl;
 
-        if (triangle.mediana())
+        if (side_a != 0 && side_b != 0 && side_c != 0)
         {
             cout << " Медиана - " << triangle.mediana();
         }
+        else
+            cout << "одна из сторон равна 0, это не треугольник";
+
+
 
 
 
